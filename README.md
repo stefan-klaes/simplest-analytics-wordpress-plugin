@@ -1,11 +1,10 @@
 # WordPress Plugin: Simplest Analytics
 
-Simple webanalytics stored in the own database without setting cookies.
+Simplest Analytics is a WordPress plugin that adds website tracking functionality to WordPress. YOu can download the plugin via the WordPress Backend or the official [WordPress repository](https://de.wordpress.org/plugins/simplest-analytics).
 
-- this is a mirrow of the code in the official [WordPress repository](https://de.wordpress.org/plugins/simplest-analytics)
-- trunk: contains the latest version
 - assets: contains the logos and screenshots
 - tags: contains all versions 1.0.0+
+- trunk: contains the latest version
 
 
 ## Description
