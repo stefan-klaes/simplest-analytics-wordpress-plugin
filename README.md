@@ -6,6 +6,8 @@ Simplest Analytics is a WordPress plugin that adds website tracking functionalit
 - tags: contains all versions 1.0.0+
 - trunk: contains the latest version
 
+![My Image](assets/screenshot1.png)
+
 
 ## Description
 
