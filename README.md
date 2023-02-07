@@ -32,3 +32,8 @@ the WordPress backend.
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 OR go to 'Plugins' > 'Add new', and search for 'simplest analytics' to install through the WordPress dashboard.
+
+## Do you want to contribute?
+1. Please use the code from the 'trunk' folder
+2. Don't forget to take care about the offical [WordPress Codestandards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/)
+3. Send a pull request
