@@ -27,7 +27,7 @@ the WordPress backend.
 
 ## Installation
 
-1. Upload the zip in 'trunk' to the '/wp-content/plugins/' directory and unzip
-1. Activate the plugin through the 'Plugins' menu in WordPress
+1. zip 'trunk' folder, rename it in 'simplest-analytics' and upload the zip in to the '/wp-content/plugins/' directory and unzip
+2. Activate the plugin through the 'Plugins' menu in WordPress
 
 OR go to 'Plugins' > 'Add new', and search for 'simplest analytics' to install through the WordPress dashboard.
