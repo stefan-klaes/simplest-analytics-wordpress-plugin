@@ -2,11 +2,9 @@
 
 Simplest Analytics is a WordPress plugin that adds website tracking functionality to WordPress. YOu can download the plugin via the WordPress Backend or the official [WordPress repository](https://de.wordpress.org/plugins/simplest-analytics).
 
-- assets: contains the logos and screenshots
-- tags: contains all versions 1.0.0+
-- trunk: contains the latest version
+- simplest-analytics: contains the latest version
 
-![My Image](assets/screenshot-1.png)
+![My Image](simplest-analytics/assets/screenshot-1.png)
 
 
 ## Description
@@ -28,12 +26,12 @@ the WordPress backend.
 
 ## Installation
 
-1. zip 'trunk' folder, rename it in 'simplest-analytics' and upload the zip in to the '/wp-content/plugins/' directory and unzip
+1. zip 'simplest-analytics' folder and upload the zip in to the '/wp-content/plugins/' directory and unzip
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 OR go to 'Plugins' > 'Add new', and search for 'simplest analytics' to install through the WordPress dashboard.
 
 ## Do you want to contribute?
-1. Please use the code from the 'trunk' folder
+1. Please use the code from the 'simplest-analytics' folder
 2. Don't forget to take care about the offical [WordPress Codestandards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/)
 3. Send a pull request
