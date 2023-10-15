@@ -12,7 +12,7 @@
  * Plugin Name:       Simplest Analytics
  * Plugin URI:        https://www.coden-lassen.de
  * Description:       Serverside and cookieless webanalytics.
- * Version:           1.2.0
+ * Version:           1.3.0
  * Author:            Stefan Klaes
  * Author URI:        https://www.coden-lassen.de/wordpress-freelancer
  * License:           GPL-2.0+
@@ -31,10 +31,10 @@ if ( ! defined( 'WPINC' ) ) {
 
 /**
  * Currently plugin version:
- * version 1.2.0
+ * version 1.3.0
  */
  
-define( 'SIMPLEST_ANALYTICS_VERSION', '1.2.0' );
+define( 'SIMPLEST_ANALYTICS_VERSION', '1.3.0' );
 
 
 
