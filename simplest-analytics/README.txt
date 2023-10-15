@@ -1,11 +1,11 @@
 === Simplest Analytics ===
 Contributors: codenlassen
 Donate link: https://www.paypal.com/donate/?hosted_button_id=DM53FXEJ53CUJ 
-Tags: analytics, statistic, tracking, cookieless
+Tags: analytics, statistic, tracking, cookieless, video tracking
 Requires at least: 4.0
-Tested up to: 6.1
+Tested up to: 6.3.2
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,7 @@ It is working. No function overload. Track visits, unique users and custom event
 * Track where your woocommerce sales come from
 * Track custom events when a user clicks an element
 * Track the use of url parameters like your-site.com/?campaign=whatever
+* Track video views (1sec, 25%, 50%, 75%, 100%)
 
 == Custom function you can use to track further events ==
 
@@ -58,7 +59,7 @@ OR go to 'Plugins' > 'Add new', and search for 'simplest analytics' to install t
 No, it's serverside tracking.
 
 = Can I track unique visitors? =
-Yes, vitits and unique visitors.
+Yes, visits and unique visitors.
 
 = Can I track clicks? =
 Yes, very easy to set up.
@@ -80,6 +81,10 @@ Please send a pull request https://github.com/stefan-klaes/simplest-analytics-wo
 6. event setting
 
 == Changelog ==
+
+= 1.3.0 - 2023-10-16 =
+* added video tracking shortcode to track 1sec, 25%, 50%, 75%, 100% views
+* fixed little dashboard ui bugs (today based on users timezone, tab switching)
 
 = 1.2.0 - 2023-07-07 =
 * added features to clear the database table easily
@@ -105,5 +110,5 @@ Please send a pull request https://github.com/stefan-klaes/simplest-analytics-wo
 
 == Upgrade Notice ==
 
-= 1.1.1 =
-New woocommerce tracking features
+= 1.3.0 =
+New vide tracking shortcode
