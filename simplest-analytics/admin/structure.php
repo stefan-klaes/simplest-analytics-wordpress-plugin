@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_urlparas"])) {
 	$get_labels = isset($_POST["label"]) ? array_map('sanitize_text_field', $_POST["label"]) : array();
 
 	$save_array = [];
+	$unique_names = [];
 
 	for ($i = 0; $i < sizeof($get_parameters); $i++) {
 
@@ -25,10 +26,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_urlparas"])) {
 			if ($this_label == "") {
 				$this_label = $this_para;
 			}
+			if (in_array($this_para, $unique_names)) {
+				$this_para = $this_para . "_" . substr(md5(rand()), 0, 5);
+			}
 			$save_array[$this_para] = $this_label;
+			$unique_names[] = $this_para;
 		}
 
 	}
+
 
 	update_option($option_name_paras, $save_array);
 
@@ -38,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_urlparas"])) {
 	$get_labels = isset($_POST["event_trigger"]) ? array_map('sanitize_text_field', $_POST["event_trigger"]) : array();
 
 	$save_array = [];
+	$unique_names = [];
 
 	for ($i = 0; $i < sizeof($get_parameters); $i++) {
 
@@ -47,7 +54,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_urlparas"])) {
 		if ($this_para == "" || $this_label == "") {
 			continue;
 		}
+		if (in_array($this_para, $unique_names)) {
+			$this_para = $this_para . "_" . substr(md5(rand()), 0, 5);
+		}
 		$save_array[$this_para] = $this_label;
+		$unique_names[] = $this_para;
 
 	}
 
@@ -106,7 +117,7 @@ if (isset($options) && is_array($options)) {
 
 	<!-- tab: url parameters -->
 	<div id="tab_urlparas" class="all_tabs" <?php echo $tab == "url_paras" ? '' : ' style="display:none"' ?>>
-		<form method="post" action="">
+		<form method="post" action="" class="simplest_analytics_form">
 			<table class="settings_table">
 				<tr class="head_th">
 					<th></th>
@@ -130,6 +141,9 @@ if (isset($options) && is_array($options)) {
 
 				<?php
 				$max_paras = 5;
+				if (sizeof($option_paras) > $max_paras) {
+					$max_paras = sizeof($option_paras);
+				}
 				for ($i = 0; $i < $max_paras; $i++) {
 					$para = $i + 1;
 					?>
@@ -139,7 +153,7 @@ if (isset($options) && is_array($options)) {
 							<?php echo esc_html($para) ?>
 						</th>
 						<td>
-							<input type="text" name="parameter[]"
+							<input type="text" name="parameter[]" class="simplest_analytics_check_duplicate"
 								value="<?php echo isset($option_paras[$i]) ? esc_html($option_paras[$i]) : "" ?>" />
 							<?php
 							if ($i == 0) {
@@ -163,6 +177,14 @@ if (isset($options) && is_array($options)) {
 				}
 				?>
 
+				<tr>
+					<th></th>
+					<td colspan="2">
+						<div class="button button-primary" onclick="simplest_analytics_add_more('url')">
+							<?php echo __('add more', 'simplest-analytics') ?>
+						</div>
+					</td>
+				</tr>
 
 
 			</table>
@@ -178,7 +200,7 @@ if (isset($options) && is_array($options)) {
 
 	<!-- tab: events -->
 	<div id="tab_events" class="all_tabs" <?php echo $tab == "events" ? '' : ' style="display:none"' ?>>
-		<form method="post" action="">
+		<form method="post" action="" class="simplest_analytics_form">
 			<table class="settings_table">
 				<tr class="head_th">
 					<th></th>
@@ -210,6 +232,9 @@ if (isset($options) && is_array($options)) {
 
 				<?php
 				$max_paras = 5;
+				if (sizeof($option_event_name) > $max_paras) {
+					$max_paras = sizeof($option_event_name);
+				}
 				for ($i = 0; $i < $max_paras; $i++) {
 					$para = $i + 1;
 					?>
@@ -219,7 +244,7 @@ if (isset($options) && is_array($options)) {
 							<?php echo esc_html($para) ?>
 						</th>
 						<td>
-							<input type="text" name="event_name[]"
+							<input type="text" name="event_name[]" class="simplest_analytics_check_duplicate"
 								value="<?php echo isset($option_event_name[$i]) ? esc_html($option_event_name[$i]) : "" ?>" />
 							<?php
 							if ($i == 0) {
@@ -243,7 +268,14 @@ if (isset($options) && is_array($options)) {
 				}
 				?>
 
-
+				<tr>
+					<th></th>
+					<td colspan="2">
+						<div class="button button-primary" onclick="simplest_analytics_add_more('event')">
+							<?php echo __('add more', 'simplest-analytics') ?>
+						</div>
+					</td>
+				</tr>
 
 			</table>
 			<input type="submit" name="submit_events" style="margin-top:20px;" class="button-primary"
@@ -443,6 +475,23 @@ if (isset($options) && is_array($options)) {
 
 	<script type="text/javascript">
 		jQuery(document).ready(function ($) {
+			// on formsubmit check duplicates
+			$('.simplest_analytics_form').submit(function (e) {
+				var para = [];
+				$('.simplest_analytics_check_duplicate').each(function () {
+					var this_val = $(this).val();
+					if (this_val !== "") {
+						// if not in para push it
+						if ($.inArray(this_val, para) !== -1) {
+							var alert_txt = '<?php echo esc_html__('Please use unique names. This name is used multiple times:', 'simplest-analytics') ?>';
+							alert(alert_txt+' '+this_val);
+							e.preventDefault();
+							return false;
+						}
+						para.push(this_val);
+					}
+				});
+			});
 			$(".simplest_analytics_clear_ele").click(function (e) {
 
 				// show loading
