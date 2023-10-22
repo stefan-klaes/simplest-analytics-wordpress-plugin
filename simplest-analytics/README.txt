@@ -5,7 +5,7 @@ Tags: analytics, statistic, tracking, cookieless, video tracking
 Requires at least: 4.0
 Tested up to: 6.3.2
 Requires PHP: 7.4
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,6 +82,10 @@ Please send a pull request https://github.com/stefan-klaes/simplest-analytics-wo
 
 == Changelog ==
 
+= 1.3.1 - 2023-10-22 =
+* removed max events and max parameters from 5 to unlimited
+* improved german translation
+
 = 1.3.0 - 2023-10-16 =
 * added video tracking shortcode to track 1sec, 25%, 50%, 75%, 100% views
 * fixed little dashboard ui bugs (today based on users timezone, tab switching)
@@ -110,5 +114,5 @@ Please send a pull request https://github.com/stefan-klaes/simplest-analytics-wo
 
 == Upgrade Notice ==
 
-= 1.3.0 =
-New vide tracking shortcode
+= 1.3.1 =
+Track unlimited events and url parameters

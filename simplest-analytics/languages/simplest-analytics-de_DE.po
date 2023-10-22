@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: simplest-analytics 1.0.0\n"
-"POT-Creation-Date: 2023-07-07 21:41+0200\n"
-"PO-Revision-Date: 2023-07-07 21:42+0200\n"
+"POT-Creation-Date: 2023-10-22 13:29+0200\n"
+"PO-Revision-Date: 2023-10-22 13:29+0200\n"
 "Last-Translator: \n"
 "Language-Team: https://www.coden-lassen.de\n"
 "Language: de_DE\n"
@@ -57,188 +57,205 @@ msgstr "Bitte wähle ein Datum."
 msgid "Unexpected error, please reload the page and try again."
 msgstr "Unerwarteter Fehler, bitte lade die Seite neu und versuche es erneut."
 
-#: admin/dashboard.php:184
+#: admin/dashboard.php:194
 msgid "Start date or end date is empty."
 msgstr "Start- oder Enddatum ist leer."
 
-#: admin/dashboard.php:187
+#: admin/dashboard.php:197
 msgid "End date has to be ealier than start date."
 msgstr "Enddatum muss vor Startdatum liegen."
 
-#: admin/dashboard.php:252
+#: admin/dashboard.php:264
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: admin/dashboard.php:265
+#: admin/dashboard.php:279
 msgid "Raw Data"
 msgstr "Rohdaten"
 
-#: admin/dashboard.php:281 admin/dashboard.php:308 admin/dashboard.php:420
-#: admin/dashboard.php:476 admin/dashboard.php:531 admin/dashboard.php:592
+#: admin/dashboard.php:299 admin/dashboard.php:339 admin/dashboard.php:449
+#: admin/dashboard.php:504 admin/dashboard.php:558 admin/dashboard.php:618
+#: admin/dashboard.php:673
 msgid "Visits"
 msgstr "Aufrufe"
 
-#: admin/dashboard.php:288
+#: admin/dashboard.php:308
 msgid "Unique Visitors"
 msgstr "Nutzer"
 
-#: admin/dashboard.php:295 admin/dashboard.php:591
+#: admin/dashboard.php:317 admin/dashboard.php:617
 msgid "Tracked events"
 msgstr "Gemessene Events"
 
-#: admin/dashboard.php:308 admin/dashboard.php:358 admin/dashboard.php:736
-#: admin/dashboard.php:780
+#: admin/dashboard.php:326 admin/dashboard.php:671
+#, fuzzy
+#| msgid "Tracked events"
+msgid "Tracked videos"
+msgstr "Gemessene Events"
+
+#: admin/dashboard.php:339 admin/dashboard.php:388 admin/dashboard.php:846
+#: admin/dashboard.php:889
 msgid "Date"
 msgstr "Datum"
 
-#: admin/dashboard.php:311 admin/dashboard.php:363 admin/dashboard.php:428
-#: admin/dashboard.php:484 admin/dashboard.php:539 admin/dashboard.php:600
-#: admin/dashboard.php:739 admin/dashboard.php:783 admin/dashboard.php:835
-#: admin/dashboard.php:910
+#: admin/dashboard.php:342 admin/dashboard.php:393 admin/dashboard.php:457
+#: admin/dashboard.php:512 admin/dashboard.php:566 admin/dashboard.php:626
+#: admin/dashboard.php:681 admin/dashboard.php:849 admin/dashboard.php:892
+#: admin/dashboard.php:943 admin/dashboard.php:1017
 msgid "no results"
 msgstr "keine Ergebnisse"
 
-#: admin/dashboard.php:330
+#: admin/dashboard.php:360
 msgid "Daily visits"
 msgstr "Tägliche Aufrufe"
 
-#: admin/dashboard.php:358 admin/dashboard.php:421 admin/dashboard.php:477
-#: admin/dashboard.php:532 admin/dashboard.php:593
+#: admin/dashboard.php:388 admin/dashboard.php:450 admin/dashboard.php:505
+#: admin/dashboard.php:559 admin/dashboard.php:619 admin/dashboard.php:674
 msgid "Unique visitors"
 msgstr "Nutzer"
 
-#: admin/dashboard.php:390
+#: admin/dashboard.php:419
 msgid "Daily unique visitors"
 msgstr "Tägliche Nutzer"
 
-#: admin/dashboard.php:419
+#: admin/dashboard.php:448
 msgid "Most visited sites"
 msgstr "Meistbesuchte Seiten"
 
-#: admin/dashboard.php:475
+#: admin/dashboard.php:503
 msgid "Top external referrers"
 msgstr "Top external Referrers"
 
-#: admin/dashboard.php:529
+#: admin/dashboard.php:556
 msgid "Top URL parameters"
 msgstr "Top URL Parameters"
 
-#: admin/dashboard.php:530 admin/dashboard.php:901
+#: admin/dashboard.php:557 admin/dashboard.php:1008
 msgid "Value"
 msgstr "Wert"
 
-#: admin/dashboard.php:710 admin/dashboard.php:736 admin/dashboard.php:827
-#: admin/dashboard.php:902
+#: admin/dashboard.php:672
+#, fuzzy
+#| msgid "Event"
+msgid "event"
+msgstr "Event"
+
+#: admin/dashboard.php:816 admin/dashboard.php:846 admin/dashboard.php:935
+#: admin/dashboard.php:1009
 msgid "Sales"
 msgstr "Verkäufe"
 
-#: admin/dashboard.php:717 admin/dashboard.php:828 admin/dashboard.php:903
+#: admin/dashboard.php:825 admin/dashboard.php:936 admin/dashboard.php:1010
 msgid "Amount"
 msgstr "Betrag"
 
-#: admin/dashboard.php:724
+#: admin/dashboard.php:834
 msgid "avg Sale"
 msgstr "Durchschnitts-Verkäufe"
 
-#: admin/dashboard.php:754
+#: admin/dashboard.php:863
 #, fuzzy
 #| msgid "Daily visits"
 msgid "Daily sales"
 msgstr "Tägliche Aufrufe"
 
-#: admin/dashboard.php:780
+#: admin/dashboard.php:889
 msgid "Sales amount"
 msgstr "Verkaufsbetrag"
 
-#: admin/dashboard.php:800
+#: admin/dashboard.php:908
 msgid "Daily sales amount"
 msgstr "Täglicher Verkaufsbetrag"
 
-#: admin/dashboard.php:826
+#: admin/dashboard.php:934
 msgid "Sales: last referrer (max. 7 days before sale)"
 msgstr "Verkäufe: Letzte Referrer (max. 7 Tage vor Kauf)"
 
-#: admin/dashboard.php:900
+#: admin/dashboard.php:1007
 msgid "Sales: last url parameter (max. 7 days before sale)"
 msgstr "Verkäufe: Letzter URL Parameter (max. 7 Tage vor Kauf)"
 
-#: admin/dashboard.php:1083
+#: admin/dashboard.php:1188
 msgid "choose daterange"
 msgstr "Wähle eine Zeitspanne"
 
-#: admin/dashboard.php:1087
+#: admin/dashboard.php:1192
 msgid "today"
 msgstr "heute"
 
-#: admin/dashboard.php:1091
+#: admin/dashboard.php:1196
 msgid "yesterday"
 msgstr "gestern"
 
-#: admin/dashboard.php:1095
+#: admin/dashboard.php:1200
 msgid "last 7 days"
 msgstr "letzte 7 Tage"
 
-#: admin/dashboard.php:1099
+#: admin/dashboard.php:1204
 msgid "last 14 days"
 msgstr "letzte 14 Tage"
 
-#: admin/dashboard.php:1103
+#: admin/dashboard.php:1208
 msgid "last 30 days"
 msgstr "letzte 30 Tage"
 
-#: admin/dashboard.php:1107
+#: admin/dashboard.php:1212
 msgid "last month"
 msgstr "letzter Monat"
 
-#: admin/dashboard.php:1111
+#: admin/dashboard.php:1216
 msgid "alltime"
 msgstr "Komplette Zeit"
 
-#: admin/dashboard.php:1115
+#: admin/dashboard.php:1221
 msgid "custom"
 msgstr "benutzerdefiniert"
 
-#: admin/dashboard.php:1122
+#: admin/dashboard.php:1230
 msgid "custom daterange"
 msgstr "Zeitspanne"
 
-#: admin/dashboard.php:1125
+#: admin/dashboard.php:1235
 msgid "from:"
 msgstr "von:"
 
-#: admin/dashboard.php:1129
+#: admin/dashboard.php:1241
 msgid "to:"
 msgstr "bis:"
 
-#: admin/dashboard.php:1133
+#: admin/dashboard.php:1246
 msgid "apply daterange"
 msgstr "Zeitspanne auswählen"
 
-#: admin/structure.php:85
+#: admin/structure.php:96
 msgid "Simplest Analytics Settings"
 msgstr "Simplest Analytics Einstellungen"
 
-#: admin/structure.php:90
+#: admin/structure.php:102
 msgid "URL parameters"
 msgstr "URL Parameter"
 
-#: admin/structure.php:93
+#: admin/structure.php:106
 msgid "Events"
 msgstr "Events"
 
-#: admin/structure.php:96
+#: admin/structure.php:110
+msgid "Videos"
+msgstr "Videos"
+
+#: admin/structure.php:114
 msgid "Database"
 msgstr "Datenbank"
 
-#: admin/structure.php:106
+#: admin/structure.php:125
 msgid "URL Parameter"
 msgstr "URL Parameter"
 
-#: admin/structure.php:107
+#: admin/structure.php:128
 msgid "Label for reports"
 msgstr "Label für Reports"
 
-#: admin/structure.php:111
+#: admin/structure.php:134
 msgid ""
 "e.g. set up \"campaign\" and all traffic with campaign=whatever will be "
 "tracked. Use the URL parameters like this: "
@@ -246,7 +263,7 @@ msgstr ""
 "z.B. gebe \"Campaign\" an und der Traffic von URLs mit dem Parameter "
 "Campaign=whatever wird getrackt. Nutze URL Parameter wie folgt: "
 
-#: admin/structure.php:114
+#: admin/structure.php:138
 msgid ""
 "The label will appear as name shown in the reports and statistics. E.g. if "
 "you set up the URL parameter \"campaign\" and the label \"Campaign Name\" "
@@ -256,23 +273,27 @@ msgstr ""
 "URL Parameter \"Campaign\" und das Label nennst du \"Kampagnen Name\". Du "
 "wirst \"Kampagnen Name\" als Bezeichnung in Reports und Statistiken sehen."
 
-#: admin/structure.php:123
+#: admin/structure.php:152
 msgid "Parameter"
 msgstr "Parameter"
 
-#: admin/structure.php:148
+#: admin/structure.php:184 admin/structure.php:275
+msgid "add more"
+msgstr "mehr hinzufügen"
+
+#: admin/structure.php:192
 msgid "save url parameters"
 msgstr "speichere URL Parameter"
 
-#: admin/structure.php:163
+#: admin/structure.php:208
 msgid "Event Name"
 msgstr "Event Name"
 
-#: admin/structure.php:164
+#: admin/structure.php:211
 msgid "Click class/id"
 msgstr "Klick Klasse/ID"
 
-#: admin/structure.php:168
+#: admin/structure.php:217
 msgid ""
 "Set up a name for the event. E.g. you want to track form submissions name "
 "the event \"form submission\"."
@@ -280,7 +301,7 @@ msgstr ""
 "Gib dem Event einen Namen. Z.B. nenne es \"Form abgeschickt\", wenn es "
 "Formular Versendungen messen soll."
 
-#: admin/structure.php:171
+#: admin/structure.php:220
 msgid ""
 "Events will track when a user clicks on an element. To know what element to "
 "track you can setup the id or class of the elememt. Here are a few examples:"
@@ -289,19 +310,19 @@ msgstr ""
 "bei welchem Element genau gemessen werden soll, kannst du Klick Klassen und "
 "IDs angeben. Hier folgen einige Beispiele:"
 
-#: admin/structure.php:172
+#: admin/structure.php:222
 msgid "element with class"
 msgstr "Element mit Klasse"
 
-#: admin/structure.php:173
+#: admin/structure.php:224
 msgid "element with id"
 msgstr "Element mit ID"
 
-#: admin/structure.php:174
+#: admin/structure.php:226
 msgid "element with the two classes"
 msgstr "Element mit zwei Klassen"
 
-#: admin/structure.php:175
+#: admin/structure.php:229
 msgid ""
 "Element with \"btn\" which is in element with class \"form\" which is in "
 "element with class \"order-detail\""
@@ -309,73 +330,118 @@ msgstr ""
 "Element mit Klasse \"btn\", welches in Element mit Klasse \"form\" ist, "
 "welchen in Element mit Klasse \"order-Detail\" ist."
 
-#: admin/structure.php:185
+#: admin/structure.php:243
 msgid "Event"
 msgstr "Event"
 
-#: admin/structure.php:210
+#: admin/structure.php:282
 msgid "save events"
 msgstr "speichere Events"
 
-#: admin/structure.php:247
+#: admin/structure.php:295
+#, fuzzy
+#| msgid "Tracked events"
+msgid "Track Videos"
+msgstr "Gemessene Events"
+
+#: admin/structure.php:298
+msgid "Information"
+msgstr "Information"
+
+#: admin/structure.php:304
+msgid "You can track videos by using the shortcode [tracked_video]."
+msgstr ""
+"Du kannst Videos tracken indem du den Shortcode [tracked_video] verwendest."
+
+#: admin/structure.php:307
+msgid ""
+"The shortcode will track when 1sec, 25%, 50%, 75% and 100% of the video is "
+"seen. These parameters are tracked once per pageview."
+msgstr ""
+"Der Shortcode trackt folgende Video Ereignisse: 1 Sekunde, 25%, 50%, 75% und "
+"100% gesehen. Diese Ereignisse werden einmal pro Seitenaufruf gemessen."
+
+#: admin/structure.php:313 admin/structure.php:325
+msgid "Example"
+msgstr "Beispiel"
+
+#: admin/structure.php:319
+msgid ""
+"This will track the video \"your-video.mp4\" with the name \"video xyz\"."
+msgstr "Das misst das Video \"your-video.mp4\" mit dem Namen \"video xyz\"."
+
+#: admin/structure.php:331
+msgid ""
+"You can also add width and height in the shortcode. Default are the "
+"WordPress vidoe shortcode defaults."
+msgstr ""
+"Es können Breite und Höhe in den Shortcode eingebunden werden. Standardmäßig "
+"sind die WordPress Standardwerte hinterlegt."
+
+#: admin/structure.php:373
 #, fuzzy
 #| msgid "Value"
 msgid "value"
 msgstr "Wert"
 
-#: admin/structure.php:248
+#: admin/structure.php:376
 msgid "info"
 msgstr "Info"
 
-#: admin/structure.php:252
+#: admin/structure.php:382
 msgid "Database Table name"
 msgstr "Name Datenbank Tabelle"
 
-#: admin/structure.php:257
+#: admin/structure.php:388
 msgid "All options at this page are only related to this table."
 msgstr ""
 "Alle Einstellungen auf dieser Seite beziehen sich ausschließlich auf diese "
 "Tabelle."
 
-#: admin/structure.php:262
+#: admin/structure.php:394
 msgid "Total entries"
 msgstr "Anzahl Datenbankeinträge"
 
-#: admin/structure.php:267
+#: admin/structure.php:400
 msgid "number of values in the database table"
 msgstr "Anzahl der Einträge in der Datenbank Tabelle"
 
-#: admin/structure.php:272 admin/structure.php:287 admin/structure.php:302
+#: admin/structure.php:407 admin/structure.php:425 admin/structure.php:444
 msgid "clear options"
 msgstr "clear options"
 
-#: admin/structure.php:275
+#: admin/structure.php:411
 msgid "delete all entries"
 msgstr "lösche alle Einträge"
 
-#: admin/structure.php:279
+#: admin/structure.php:416
 msgid "All entries will be removed from the database."
 msgstr "Alle Einträge werden in der Datenbank Tabelle gelöscht."
 
-#: admin/structure.php:290
+#: admin/structure.php:429
 msgid "delete entries older than this year"
 msgstr "Lösche ältere EInträge als dieses Jahr"
 
-#: admin/structure.php:294
+#: admin/structure.php:434
 msgid "All entries will be deleted that are not from"
 msgstr "Alle Einträge werden gelöscht, die nicht aus folgendem Jahr sind: "
 
-#: admin/structure.php:306
+#: admin/structure.php:450
 msgid "delete entries older than"
 msgstr "Lösche EInträge älter als"
 
-#: admin/structure.php:310
+#: admin/structure.php:454
 msgid ""
 "Select a date and all entries that are older than this date will be deleted"
 msgstr ""
 "Wähle ein Datum und alle Einträge, die älter sind als dieses Datum werden "
 "gelöscht"
 
-#: admin/structure.php:323
+#: admin/structure.php:470
 msgid "loading"
 msgstr "lädt"
+
+#: admin/structure.php:486
+msgid "Please use unique names. This name is used multiple times:"
+msgstr ""
+"Bitte nutze eindeutige Namen. Der folgende Name wurde mehrfach genutzt:"

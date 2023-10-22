@@ -42,7 +42,7 @@ class Simplest_Analytics_Activator {
 		 * Set Up Plugin Version
 		 */
 		 
-		 update_option( 'simplest_analytics_version', '1.3.0' );
+		 update_option( 'simplest_analytics_version', '1.3.1' );
 
 		 /**
 		 * Set Up tracking url parameter
