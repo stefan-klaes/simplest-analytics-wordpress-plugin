@@ -4,12 +4,24 @@
  */
 
 
+$option_name_general = 'simplest_analytivs_general';
 $option_name_paras = 'simplest_analytivs_url_para';
 $option_name_events = 'simplest_analytivs_events';
-$tab = "url_paras";
+$tab = "general";
 
 // Processing form data when form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_urlparas"])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_general"])) {
+	$general_options = [];
+	$general_options["cookie_name"] = isset($_POST["cookie_name"]) ? sanitize_text_field(trim($_POST["cookie_name"])) : "";
+	$general_options["cookie_value"] = isset($_POST["cookie_value"]) ? sanitize_text_field(trim($_POST["cookie_value"])) : "";
+
+	if ($general_options["cookie_name"] == "" || $general_options["cookie_value"] == "") {
+		$general_options["cookie_name"] = "";
+		$general_options["cookie_value"] = "";
+	}
+
+	update_option($option_name_general, $general_options);
+} else if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_urlparas"])) {
 
 	$get_parameters = isset($_POST["parameter"]) ? array_map('sanitize_title', $_POST["parameter"]) : array();
 	$get_labels = isset($_POST["label"]) ? array_map('sanitize_text_field', $_POST["label"]) : array();
@@ -87,6 +99,7 @@ if (isset($options) && is_array($options)) {
 	}
 }
 
+$general_options = get_option($option_name_general);
 
 
 ?>
@@ -97,6 +110,10 @@ if (isset($options) && is_array($options)) {
 	</h2>
 
 	<nav class="nav-tab-wrapper woo-nav-tab-wrapper" style="margin-bottom:10px;">
+		<a id="general" onclick="simplest_analytics_toggle_tabs_by_id(this)"
+			class="nav-tab  <?php echo $tab == "general" ? 'nav-tab-active' : '' ?>">
+			<?php echo esc_html__('General', 'simplest-analytics') ?>
+		</a>
 		<a id="urlparas" onclick="simplest_analytics_toggle_tabs_by_id(this)"
 			class="nav-tab  <?php echo $tab == "url_paras" ? 'nav-tab-active' : '' ?>">
 			<?php echo esc_html__('URL parameters', 'simplest-analytics') ?>
@@ -114,6 +131,59 @@ if (isset($options) && is_array($options)) {
 			<?php echo esc_html__('Database', 'simplest-analytics') ?>
 		</a>
 	</nav>
+
+	<!-- tab: general -->
+	<div id="tab_general" class="all_tabs" <?php echo $tab == "general" ? '' : ' style="display:none"' ?>>
+		<form method="post" action="" class="simplest_analytics_form">
+			<table class="settings_table">
+				<tr class="head_th">
+					<th></th>
+					<th>
+						<?php echo __('Cookie Name', 'simplest-analytics') ?>
+					</th>
+					<th>
+						<?php echo __('Cookie Value', 'simplest-analytics') ?>
+					</th>
+				</tr>
+
+				<tr>
+					<th></th>
+					<td colspan="2">
+						<?php echo __('If you want to require a certain cookie to be set before data is tracked please fill out the fields. Otherwise leave the fields empty', 'simplest-analytics') ?>
+					</td>
+				</tr>
+
+
+
+				<tr>
+					<th>
+						<?php echo __('Cookie', 'simplest-analytics') ?>
+					</th>
+					<td>
+						<input type="text" name="cookie_name"
+							value="<?php echo isset($general_options["cookie_name"]) ? esc_html($general_options["cookie_name"]) : "" ?>" />
+						<span class="desc">
+							<?php echo __('Name of the cookie that has to be set to allow tracking. E.g. analytics_consent', 'simplest-analytics') ?>
+						</span>
+
+					</td>
+					<td>
+						<input type="text" name="cookie_value"
+							value="<?php echo isset($general_options["cookie_value"]) ? esc_html($general_options["cookie_value"]) : "" ?>" />
+						<span class="desc">
+							<?php echo __('Value that has to be set. E.g. true or yes or others', 'simplest-analytics') ?>
+						</span>
+
+					</td>
+				</tr>
+
+
+			</table>
+			<input type="submit" name="submit_general" style="margin-top:20px;" class="button-primary"
+				value="<?php echo __('save general settings', 'simplest-analytics') ?>" />
+		</form>
+	</div>
+	<!-- END tab: general -->
 
 	<!-- tab: url parameters -->
 	<div id="tab_urlparas" class="all_tabs" <?php echo $tab == "url_paras" ? '' : ' style="display:none"' ?>>
@@ -484,7 +554,7 @@ if (isset($options) && is_array($options)) {
 						// if not in para push it
 						if ($.inArray(this_val, para) !== -1) {
 							var alert_txt = '<?php echo esc_html__('Please use unique names. This name is used multiple times:', 'simplest-analytics') ?>';
-							alert(alert_txt+' '+this_val);
+							alert(alert_txt + ' ' + this_val);
 							e.preventDefault();
 							return false;
 						}
