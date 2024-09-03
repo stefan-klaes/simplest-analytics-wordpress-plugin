@@ -28,7 +28,7 @@ class Simplest_Analytics
 		if (defined('SIMPLEST_ANALYTICS_VERSION')) {
 			$this->version = SIMPLEST_ANALYTICS_VERSION;
 		} else {
-			$this->version = '1.3.1';
+			$this->version = '1.3.2';
 		}
 		$this->simplest_analytics = 'simplest-analytics';
 
