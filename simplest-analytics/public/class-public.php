@@ -73,6 +73,10 @@ class Simplest_Analytics_Public
 					});
 
 				function onTrackedVideoFrame<?php echo esc_html($randmom_id) ?>(currentTime, duration, video_wrapper_id) {
+					var allowed = simplest_analytics_is_allowed();
+					if (!allowed) {
+						return;
+					}
 					var percentage = Math.floor((currentTime / duration) * 100);
 					var one_sec = $("#" + video_wrapper_id + " .simplest_analytics_video_sec_1").val();
 					var percent_25 = $("#" + video_wrapper_id + " .simplest_analytics_video_percent_25").val();
@@ -185,10 +189,51 @@ class Simplest_Analytics_Public
 	public function tracking_in_footer()
 	{
 
+		$general_options = get_option('simplest_analytivs_general');
+		$cookie_name = isset($general_options['cookie_name']) ? sanitize_text_field($general_options['cookie_name']) : '';
+		$cookie_value = isset($general_options['cookie_value']) ? sanitize_text_field($general_options['cookie_value']) : '';
+
+
 
 		?>
 		<script>
+
+			function simplest_analytics_is_allowed() {
+
+				try {
+
+					var required_cookie_name = "<?php echo esc_html($cookie_name) ?>";
+					var required_cookie_value = "<?php echo esc_html($cookie_value) ?>";
+					if (required_cookie_name === "" && required_cookie_value === "") {
+						return true;
+					}
+
+					var name = required_cookie_name + "=";
+					var decodedCookie = decodeURIComponent(document.cookie);
+					var ca = decodedCookie.split(';');
+					for (var i = 0; i < ca.length; i++) {
+						var c = ca[i];
+						while (c.charAt(0) === ' ') {
+							c = c.substring(1);
+						}
+						if (c.indexOf(name) === 0) {
+							if (c.substring(name.length, c.length) === required_cookie_value) {
+								return true;
+							}
+						}
+					}
+					return false;
+				} catch (e) {
+					return false;
+				}
+
+			}
+
 			function simplest_analytics_track(type, event) {
+				var allowed = simplest_analytics_is_allowed();
+				if (!allowed) {
+					return;
+				}
 				if (event !== "") {
 					var event = "&event=" + event;
 				}
@@ -255,17 +300,21 @@ class Simplest_Analytics_Public
 
 		?>
 		<script>
-			var wc_simplest_analytics_url = "<?php echo esc_url(admin_url('admin-ajax.php')) ?>?action=simplest_analytics_tracking_action&type=event&event=sale&ref=" + document.referrer;
-			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function () {
-				if (this.readyState == 4 && this.status == 200) {
-					// Typical action to be performed when the document is ready:
-					//alert(xhttp.responseText);
-				}
+			var allowed = simplest_analytics_is_allowed();
+			if (allowed) {
 
-			};
-			xhttp.open("GET", wc_simplest_analytics_url, true);
-			xhttp.send();
+				var wc_simplest_analytics_url = "<?php echo esc_url(admin_url('admin-ajax.php')) ?>?action=simplest_analytics_tracking_action&type=event&event=sale&ref=" + document.referrer;
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function () {
+					if (this.readyState == 4 && this.status == 200) {
+						// Typical action to be performed when the document is ready:
+						//alert(xhttp.responseText);
+					}
+
+				};
+				xhttp.open("GET", wc_simplest_analytics_url, true);
+				xhttp.send();
+			}
 		</script>
 		<?php
 	}
