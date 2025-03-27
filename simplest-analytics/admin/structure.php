@@ -20,6 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_general"])) {
 		$general_options["cookie_value"] = "";
 	}
 
+	// access roles
+	$access_webanalytics = isset($_POST["access_webanalytics"]) ? array_map('sanitize_text_field', $_POST["access_webanalytics"]) : array();
+	$access_settings = isset($_POST["access_settings"]) ? array_map('sanitize_text_field', $_POST["access_settings"]) : array();
+
+	$general_options["access_webanalytics"] = $access_webanalytics;
+	$general_options["access_settings"] = $access_settings;
+
 	update_option($option_name_general, $general_options);
 } else if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit_urlparas"])) {
 
@@ -173,6 +180,88 @@ $general_options = get_option($option_name_general);
 						<span class="desc">
 							<?php echo __('Value that has to be set. E.g. true or yes or others', 'simplest-analytics') ?>
 						</span>
+
+					</td>
+				</tr>
+
+				<?php
+				// get all possible user roles
+				global $wp_roles;
+
+				$backend_roles = [];
+
+				foreach ($wp_roles->roles as $role_name => $role_info) {
+					if (isset($role_info['capabilities']['read']) && $role_info['capabilities']['read']) {
+						$backend_roles[$role_name] = $wp_roles->role_names[$role_name];
+					}
+				}
+
+				?>
+				<tr class="head_th">
+					<th></th>
+					<th>
+						<?php echo __('Access to Webanalytics', 'simplest-analytics') ?>
+					</th>
+					<th>
+						<?php echo __('Access to Settings', 'simplest-analytics') ?>
+					</th>
+				</tr>
+
+				<tr>
+					<th></th>
+					<td colspan="2">
+						<?php echo __('Define the user roles that are allowed to use the backend part of the plugin.', 'simplest-analytics') ?>
+					</td>
+				</tr>
+
+
+				<tr>
+					<th>
+						<?php echo __('Roles with access', 'simplest-analytics') ?>
+					</th>
+					<td>
+						<?php
+						foreach ($backend_roles as $key => $val) {
+							$is_disabled = $key == "administrator" ? 'disabled' : '';
+							$is_checked = isset($general_options["access_webanalytics"]) && in_array($key, $general_options["access_webanalytics"]);
+							if ($key == "administrator") {
+								$is_checked = true;
+							}
+
+							?>
+							<div style="margin-bottom:10px">
+								<label>
+									<input <?php echo esc_attr($is_disabled); ?> type="checkbox"
+										name="access_webanalytics[]" value="<?php echo esc_html($key) ?>" <?php echo $is_checked ? 'checked' : '' ?> />
+									<?php echo esc_html($val) ?>
+								</label>
+							</div>
+							<?php
+						}
+						?>
+
+					</td>
+					<td>
+						<?php
+						$roles = $wp_roles->get_names();
+						foreach ($roles as $key => $val) {
+							$is_disabled = $key == "administrator" ? 'disabled' : '';
+							$is_checked = isset($general_options["access_settings"]) && in_array($key, $general_options["access_settings"]);
+							if ($key == "administrator") {
+								$is_checked = true;
+							}
+
+							?>
+							<div style="margin-bottom:10px">
+								<label>
+									<input <?php echo esc_attr($is_disabled); ?> type="checkbox" name="access_settings[]"
+										value="<?php echo esc_html($key) ?>" <?php echo $is_checked ? 'checked' : '' ?> />
+									<?php echo esc_html($val) ?>
+								</label>
+							</div>
+							<?php
+						}
+						?>
 
 					</td>
 				</tr>

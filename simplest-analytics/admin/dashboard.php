@@ -252,7 +252,7 @@ if (isset($daily_sales)) {
 		<span class="dashicons dashicons-arrow-down-alt2"></span>
 	</div>
 
-	<h2>Simplest Analytivs</h2>
+	<h2>Simplest Analytics</h2>
 
 	<?php
 	$tab_para = "&from=" . $from_date . "&to=" . $to_date;
