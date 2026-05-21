@@ -12,7 +12,7 @@
  * Plugin Name:       Simplest Analytics
  * Plugin URI:        https://www.coden-lassen.de
  * Description:       Serverside and cookieless webanalytics.
- * Version:           1.3.2
+ * Version:           1.3.3
  * Author:            Stefan Klaes
  * Author URI:        https://www.coden-lassen.de/wordpress-freelancer
  * License:           GPL-2.0+
@@ -22,7 +22,7 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
+if (!defined('WPINC')) {
 	die;
 }
 
@@ -30,11 +30,10 @@ if ( ! defined( 'WPINC' ) ) {
 
 
 /**
- * Currently plugin version:
- * version 1.3.2
+ * Currently plugin version
  */
- 
-define( 'SIMPLEST_ANALYTICS_VERSION', '1.3.2' );
+
+define('SIMPLEST_ANALYTICS_VERSION', '1.3.3');
 
 
 
@@ -43,12 +42,13 @@ define( 'SIMPLEST_ANALYTICS_VERSION', '1.3.2' );
  * The code that runs during plugin activation.
  * This action is documented in includes/class-activator.php
  */
- 
-function activate_simplest_analytics() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-activator.php';
+
+function activate_simplest_analytics()
+{
+	require_once plugin_dir_path(__FILE__) . 'includes/class-activator.php';
 	Simplest_Analytics_Activator::activate();
 }
-register_activation_hook( __FILE__, 'activate_simplest_analytics' );
+register_activation_hook(__FILE__, 'activate_simplest_analytics');
 
 
 
@@ -56,31 +56,33 @@ register_activation_hook( __FILE__, 'activate_simplest_analytics' );
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-deactivator.php
  */
- 
-function deactivate_simplest_analytics() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-deactivator.php';
+
+function deactivate_simplest_analytics()
+{
+	require_once plugin_dir_path(__FILE__) . 'includes/class-deactivator.php';
 	Simplest_Analytics_Deactivator::deactivate();
 }
-register_deactivation_hook( __FILE__, 'deactivate_simplest_analytics' );
+register_deactivation_hook(__FILE__, 'deactivate_simplest_analytics');
 
 
 /**
  * The code that runs if plugin will be uninstalled.
  * This action is documented in includes/class-uninstall.php
  */
-function uninstall_simplest_analytics() {
-    require_once plugin_dir_path( __FILE__ ) . 'includes/class-uninstall.php';
+function uninstall_simplest_analytics()
+{
+	require_once plugin_dir_path(__FILE__) . 'includes/class-uninstall.php';
 	Simplest_Analytics_Uninstaller::uninstall();
 }
-register_uninstall_hook( __FILE__, 'uninstall_simplest_analytics' );
+register_uninstall_hook(__FILE__, 'uninstall_simplest_analytics');
 
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
- 
-require plugin_dir_path( __FILE__ ) . 'includes/class-simplest-analytics.php';
+
+require plugin_dir_path(__FILE__) . 'includes/class-simplest-analytics.php';
 
 /**
  * Begins execution of the plugin.
@@ -91,10 +93,9 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-simplest-analytics.php';
  *
  * Check if Woocommerce is activ
  */
- 
 
 
-	
+
+
 $plugin = new Simplest_Analytics();
 $plugin->run();
-	
